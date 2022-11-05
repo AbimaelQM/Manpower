@@ -1,0 +1,161 @@
+@import '../../variaveis.scss';
+
+
+
+@keyframes open_buttons_start {
+
+    from {
+
+        opacity: 0;
+        height: 0px;
+    }
+
+    to {
+        opacity: 1;
+        height: 310px;
+
+    }
+}
+
+
+
+@keyframes animation_button_start {
+
+    from {
+
+        width: 10px;
+        height: 10px;
+        opacity: 0;
+
+    }
+
+    to {
+
+        opacity: 1;
+        width: 50px;
+        height: 50px;
+    }
+}
+
+
+@keyframes label_animation {
+
+    from {
+
+        font-size: 5px;
+    }
+
+    to {
+
+        font-size: 11px;
+    }
+}
+
+.area-buttons {
+    position: fixed;
+    bottom: 20%;
+    right: 1%;
+    z-index: 2;
+
+    .oculto {
+
+        display: none;
+
+
+    }
+
+    .visivel {
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        animation: open_buttons_start;
+        animation-duration: 0.2;
+        animation-timing-function: ease-out;
+        animation-iteration-count: infinite;
+        overflow: visible;
+        padding-bottom: 50%;
+        width: 56px;
+
+        .btn-opcao {
+
+            width: 55px;
+            height: 55px;
+            margin-top: 8%;
+            box-shadow: none;
+            animation: animation_button_start;
+            animation-duration: 0.2s;
+            animation-timing-function: linear;
+            transition: all 0.35s ease-in-out;
+            background-color: $color_blue_dark;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-sizing: border-box;
+            overflow: hidden;
+
+            span {
+
+                display: none;
+            }
+
+            .icon-btn-opcao {
+
+                width: 45%;
+                height: auto;
+            }
+
+
+
+
+
+        }
+
+        .btn-opcao:hover {
+
+            transform: scale(1.1);
+            width: 110px;
+            border-radius: 30px;
+            justify-content: center;
+            margin-right: 55px;
+
+            span {
+                font-size: 11px;
+                display: inline-block;
+                animation: label_animation;
+                animation-duration: 0.55s;
+            }
+
+            .icon-btn-opcao {
+                display: none;
+
+            }
+        }
+
+    }
+
+    .plusCadastro {
+
+        position: fixed;
+        bottom: 15%;
+        right: 1%;
+        z-index: 2;
+        background-color: $color_btn_add;
+
+    }
+
+    .plusCadastro #icon-plus-open {
+
+        transition: all 0.2s ease-in-out;
+        transform: rotate(90deg);
+
+    }
+
+    .plusCadastro #icon-plus-close {
+
+        transition: all 0.2s ease-in-out;
+        transform: rotate(-90deg);
+
+    }
+}

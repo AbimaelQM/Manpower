@@ -1,0 +1,66 @@
+<div class="area-menu">
+
+    <div class="area-item-menu">
+
+        <!-- A rota só recebe a classe active-link se a rota for a especificada na propriedade routerLink -->
+        <a routerLink="/home" mat-button routerLinkActive="active-link" class="item-menu">
+            <div class="opt-menu">
+
+                <mat-icon color="#090C4C">home</mat-icon>
+                <span>Home</span>
+            </div>
+        </a>
+
+
+        <a mat-button (click)="navTeam()" routerLinkActive="active-link" class="item-menu">
+            <div class="opt-menu">
+                <mat-icon color="#090C4C">people</mat-icon>
+                <span>Team</span>
+            </div>
+        </a>
+
+        <mat-expansion-panel>
+            <mat-expansion-panel-header >
+                <a  class="item-menu">
+                    <div class="opt-menu">
+                        <mat-icon color="#090C4C">add_circle</mat-icon>
+                        <span>Register</span>
+                    </div>
+                </a>
+            </mat-expansion-panel-header>
+            <!-- <mat-divider></mat-divider> -->
+            <a mat-button (mousedown)="openModalRegisterJob()">
+                   
+                Job
+            </a>
+            <!-- <mat-divider></mat-divider> -->
+            <a mat-button (mousedown)="openModalRegisterTeam()">
+                   
+                Team
+            </a>
+            <a mat-button (mousedown)="openModalRegisterSkill()">
+                   
+                Skill
+            </a>
+            <a mat-button (mousedown)="openModalRegisterPerson()">
+                   
+                Person
+            </a>
+        
+            <a mat-button (mousedown)="openModalRegisterOthers()">
+               
+                Others
+            </a>
+        </mat-expansion-panel>
+
+
+        <a mat-button class="item-menu" (click)="logout()">
+            <div class="opt-menu">
+                <mat-icon color="#090C4C">exit_to_app</mat-icon>
+                <span>Logout</span>
+            </div>
+        </a>
+
+    </div>
+
+</div>

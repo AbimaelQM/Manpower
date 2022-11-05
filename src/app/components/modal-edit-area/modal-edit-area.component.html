@@ -1,0 +1,33 @@
+<div mat-dialog-title>
+    Edit area
+</div>
+
+<div mat-dialog-content>
+    <form action="" #form="ngForm" (ngSubmit)="submit(form)">
+        <mat-form-field class="input-area" appearance="fill">
+            <mat-label>Area</mat-label>
+            <input matInput type="text" placeholder="Ex: Data mining" name="name" [value]="area.name" [disabled]="!selecionado"  [(ngModel)]="area.name" required>
+            <button matSuffix mat-icon-button aria-label="Clear" [disabled]="form.invalid">
+                <mat-icon>create</mat-icon>
+            </button>
+        </mat-form-field>
+    </form>
+    <div class="areas-container">
+        <label>select area to edit:</label>
+        <div class="areas-container-items">
+            <div class="area-item" *ngFor="let area of areas" (click)="select(area)">
+                <span>
+                    {{area.name}}
+                </span>
+            </div>
+        </div>
+
+    </div>
+   
+</div>
+
+<div mat-dialog-actions>
+    <button mat-dialog-close mat-button color="warn">
+        Cancel
+    </button>
+</div>

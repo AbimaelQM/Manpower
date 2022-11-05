@@ -1,0 +1,29 @@
+.area-message{
+
+    display: flex;
+    font-weight: bold;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    .message-bar-success {
+        color: rgb(0, 168, 14);
+    }
+
+    .message-bar-error {
+        color: rgb(227, 22, 22);
+    }
+
+    .message-bar-warnig {
+        color: rgb(212, 123, 7);
+    }
+    
+    .action{
+    
+        margin-left: auto;
+        background-color: rgba(0, 0, 0, 0);
+        border: none;
+        color: rgba(255, 255, 255, 0.768);
+        font-size: 18px;
+        cursor: pointer;
+    }
+}

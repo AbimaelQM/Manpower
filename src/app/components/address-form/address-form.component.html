@@ -1,0 +1,37 @@
+<div *ngIf="addressRegister.id" mat-dialog-title class="header">
+
+    <h3>Address edit</h3>
+</div>
+<form action="" #form="ngForm" (ngSubmit)="submit(form)">
+
+    <div class="card-form">
+
+        <mat-label>Country: *</mat-label>
+        <mat-form-field class="required" appearance="fill">
+            <input matInput placeholder="Ex. Brazil" [(ngModel)]="addressRegister.country" name="country" required>
+        </mat-form-field>
+
+        <mat-label>State: *</mat-label>
+        <mat-form-field class="required" appearance="fill">
+            <input matInput placeholder="Ex. Amazonas" [(ngModel)]="addressRegister.state" name="state" required>
+        </mat-form-field>
+
+        <mat-label>City: *</mat-label>
+        <mat-form-field class="required" appearance="fill">
+            <input matInput placeholder="Ex. Manaus" [(ngModel)]="addressRegister.city" name="city" required>
+        </mat-form-field>
+
+        <div mat-dialog-actions class="buttons">
+            <button mat-button color="primary" type="submit" [disabled]="form.invalid">
+                <mat-icon inline="true">save</mat-icon>
+                Save
+            </button>
+            <button mat-button (click)="closeModal()" color="warn" type="reset">
+                <mat-icon inline="true">close</mat-icon>
+                Cancel
+            </button>
+        </div>
+
+    </div>
+
+</form>

@@ -1,0 +1,39 @@
+form {
+
+    height: 100%;
+    padding: 2%;
+    width: 50%;
+    max-width: 450px;
+    max-height: 90%;
+    padding: 30px;
+    margin: auto;
+
+    .card-form {
+
+        width: 100%;
+
+
+        .input-expertise {
+
+            width: 100%;
+           
+        }
+
+        .area-btn-add-area{
+
+            height: 30px;
+            margin: 0;
+            margin-bottom: 2px;
+            display: flex;
+            justify-content: flex-end;
+            
+        }
+
+        .select-area {
+
+            width: 100%;
+
+        }
+
+    }
+}

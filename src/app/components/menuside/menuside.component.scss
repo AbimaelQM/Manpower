@@ -1,0 +1,277 @@
+@import '../../variaveis.scss';
+
+.area-menu {
+
+    position: absolute;
+    min-height: 100%;
+    width: 100%;
+    min-width: 90px;
+    overflow-x: none;
+
+    .area-item-menu {
+
+        margin-top: 10%;
+        width: 100%;
+        height: 91%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background: rgb(255, 255, 255);
+
+        .item-menu {
+
+            width: 90%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 1%;
+            margin: 5px;
+            color: #090C4C;
+
+            .opt-menu {
+
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+
+            span {
+
+                line-height: 30px;
+                vertical-align: bottom;
+                margin-left: 10%;
+            }
+
+        }
+
+        .active-link {
+
+            background-color: rgba(29, 24, 181, 0.068);
+        }
+
+        .mat-expansion-panel {
+            box-shadow: 0px 0px 1px 0px rgba(121, 121, 121, 0.007), 0px 1px 1px 0px rgba(117, 117, 117, 0.14), 0px 1px 0px 0.2px rgba(121, 121, 121, 0.12);
+            border-radius: 0;
+            padding: 5px;
+            width: 90%;
+            border: none;
+
+
+
+
+        }
+    }
+
+}
+
+
+
+
+@media(min-width: 400px) {
+
+    
+.area-menu {
+
+    position: absolute;
+    min-height: 100%;
+    width: 100%;
+    min-width: 90px;
+    overflow-x: none;
+
+    .area-item-menu {
+
+        margin-top: 10%;
+        width: 100%;
+        height: 91%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background: rgb(255, 255, 255);
+
+        .item-menu {
+
+            width: 90%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 1%;
+            margin: 5px;
+            color: #090C4C;
+
+            .opt-menu {
+
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+
+            span {
+
+                line-height: 30px;
+                vertical-align: bottom;
+                margin-left: 10%;
+            }
+
+        }
+
+        .active-link {
+
+            background-color: rgba(29, 24, 181, 0.068);
+        }
+
+        .mat-expansion-panel {
+            box-shadow: 0px 0px 1px 0px rgba(121, 121, 121, 0.007), 0px 1px 1px 0px rgba(117, 117, 117, 0.14), 0px 1px 0px 0.2px rgba(121, 121, 121, 0.12);
+            padding: 5px;
+            width: 90%;
+            border: none;
+            .mat-expansion-panel-header {
+                gap: 0;
+                width: 100%;
+                // padding: 8px 18px 0 30px;
+                padding: 0;
+            }
+        
+            .mat-expansion-panel-header {
+                // width: 100%;
+                // padding: 8px 18px 0 30px;
+            }
+        
+        
+        
+            // ::ng-deep .mat-expansion-indicator {}
+        
+            .mat-expansion-panel-header {
+                display: flex;
+                flex-direction: column;
+                height: min-content;
+                gap: 0;
+            }
+        
+            ::ng-deep .mat-expansion-panel-content {
+        
+                ::ng-deep .mat-expansion-panel-body {
+        
+        
+                    ::ng-deep .mat-button {
+                        width: 100%;
+                        padding: 0 0 0 10px;
+                        text-align: start;
+                        font-size: 10px;
+                    }
+        
+                    padding:0 0 0 10px;
+                }
+            }
+
+
+
+        }
+    }
+
+}
+
+    
+}
+
+
+
+@media(min-width: 1100px) //if more than 900 px
+
+    {
+    .area-menu {
+
+        position: absolute;
+        min-height: 100%;
+        width: 100%;
+        min-width: 90px;
+        overflow-x: none;
+
+        .area-item-menu {
+
+            margin-top: 10%;
+            width: 100%;
+            height: 91%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: rgb(255, 255, 255);
+
+            .item-menu {
+
+                width: 90%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                padding: 1%;
+                margin: 5px;
+                color: #090C4C;
+
+                .opt-menu {
+
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                }
+
+                span {
+
+                    line-height: 30px;
+                    vertical-align: bottom;
+                    margin-left: 10%;
+                }
+
+            }
+
+            .active-link {
+
+                background-color: rgba(29, 24, 181, 0.068);
+            }
+
+            .mat-expansion-panel {
+                box-shadow: 0px 0px 1px 0px rgba(121, 121, 121, 0.007), 0px 1px 1px 0px rgba(117, 117, 117, 0.14), 0px 1px 0px 0.2px rgba(121, 121, 121, 0.12);
+                padding: 0px;
+                width: 90%;
+                border: none;
+
+                ::ng-deep .mat-expansion-indicator {
+                    padding-bottom: 12px;
+                }
+
+                .mat-expansion-panel-header {
+                    align-items: center;
+                    gap: 0px;
+                    // margin: auto;
+                    padding: 0 10px 0 10px;
+                    width: 90%;
+                    // padding: 8px 18px 0 30px;
+                    display: flex;
+                    flex-direction: row;
+                    height: min-content;
+                }
+
+                ::ng-deep .mat-expansion-panel-content {
+                    .mat-expansion-panel-body {
+                        .mat-button {
+                            width: 100%;
+                            padding: 0 0 0 26%;
+                            text-align: start;
+                            font-size: 14px;
+                        }
+
+                        padding: 0 18px 16px 26px;
+                    }
+                }
+            }
+
+
+
+        }
+    }
+
+}

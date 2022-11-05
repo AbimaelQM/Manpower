@@ -1,0 +1,43 @@
+<div mat-dialog-title class="header">
+    <h3>New Skill</h3>
+</div>
+<form action="" #form="ngForm" (ngSubmit)="submit(form)">
+
+    <div class="card-form">
+
+        <div class="area-btn-add-area">
+
+            <button mat-button disableRipple="false" type="button" color="primary" (click)="newArea()">
+                New area
+                <mat-icon inline="true">
+                    add
+                </mat-icon>
+            </button>
+        </div>
+        <mat-label>Area: *</mat-label>
+        <mat-form-field class="select-area" appearance="fill">
+            <mat-select  [(value)]="skillRegistro.area" name="area" [compareWith]="compareById" [(ngModel)]="skillRegistro.area" [disabled]="areasRegistros.length < 0" placeholder="Select..." required>
+                <mat-option *ngFor="let area of areasRegistros" [value]="area" >
+                    {{area.name}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-label>Expertise: *</mat-label>
+        <mat-form-field class="input-expertise" appearance="fill">
+            <input matInput placeholder="Ex. Computer vision" name="name" [disabled]="areasRegistros.length < 0"
+                [(ngModel)]="skillRegistro.name" maxlength="50" required>
+        </mat-form-field>
+      
+        <div mat-dialog-actions>
+            <button mat-button color="primary" type="submit" [disabled]="form.invalid">
+                <mat-icon inline="true">save</mat-icon>
+                Save
+            </button>
+            <button mat-button (click)="closeModal()" color="warn" type="button">
+                <mat-icon inline="true">close</mat-icon>
+                Cancel
+            </button>
+
+        </div>
+    </div>
+</form>

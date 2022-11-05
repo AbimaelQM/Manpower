@@ -1,0 +1,49 @@
+<div mat-dialog-title class="header">
+    <h3>Job details</h3>
+</div>
+<!-- <div class="data">
+    <p>CREATED: data</p>
+</div> -->
+<div class="container">
+    <div class="container-content">
+
+        <h2>Requirements: </h2>
+        <div class="requirements">
+            <mat-chip-list class="type-modality">
+            
+                <mat-chip color="primary" selected  class="type">    
+                    {{job.type.name}}
+                </mat-chip>
+
+                <mat-chip color="primary" selected  class="modality">
+                    {{job.modality.name}}
+                </mat-chip>
+            </mat-chip-list>
+            <div class="skill">
+                <img src="../../../assets/img/skill-icon2.svg" class="icon-btn-opcao" alt="icon skill">
+                {{job.area.name}}/{{job.skill.name}} - {{job.skillLevel.name}}
+            </div>
+        </div>
+        <h2>Atributs: </h2>
+        <div class="atributs">
+            <div class="address">
+                {{job.address.country}} - {{job.address.state}} - {{job.address.city}}
+            </div>
+            <div class="team-subteam">
+                <img src="../../../assets/img/team2.svg" class="icon-btn-opcao" alt="icon team">
+                {{job.team.name }} / {{ job.subTeam.name}}
+            </div>
+        </div>
+        <h2>Person atributs: </h2>
+        <p *ngIf="!job.person"> Without associated person</p>
+        <div *ngIf="job.person" class="person-atributs">
+            <div class="person">
+                <img src="../../../assets/img/person2.svg" class="icon-btn-opcao" alt="icon person">
+                {{job.person.name}} | {{job.person.email}}
+            </div>
+
+        </div>
+
+
+    </div>
+</div>

@@ -1,0 +1,99 @@
+.container {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    #box-conteudo {
+        width: 100%;
+        height: 100%;
+        box-sizing: border-box;
+
+        .box-info{
+
+            position: relative;
+            margin: 1%;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            .info-quant-job{
+
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                margin: 0;
+                padding: 0;
+                h3{
+                    
+                    font-size: 16px;
+                    color: #aaa;
+                    margin: 0;
+                }
+
+               
+            }
+            .info-team{
+
+                margin-left: 3%;
+                display: flex;
+                width: 100%;
+                height: 100%;
+                justify-content: flex-start;
+                align-items: center;
+
+                .btn-edit-team{
+                    position: absolute;
+                    top: 3%;
+                    right: 1%;
+
+                }
+                .info-team-dados{
+
+                    display: flex;
+                    flex-direction: column;
+                    h4{
+                        color: rgb(146, 145, 145);
+                        font-size: 30px;
+                        line-height: 30px;
+
+                    }
+    
+                    h5{
+                       
+                        color: #aaa;
+                        font-size: 16px;
+                    }
+
+                }
+            }
+        }
+
+        .controle-sub-team{
+
+            display: flex;
+            justify-content: flex-end;
+            padding: 1%;
+
+        }
+        .lista-subteam{
+            
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0 2%;
+            
+            .item-subteam{
+
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+
+            }
+            
+        }
+    }
+
+  
+}

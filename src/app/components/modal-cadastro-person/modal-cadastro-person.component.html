@@ -1,0 +1,141 @@
+<div mat-dialog-title class="header">
+    <h3>Person registration</h3>
+</div>
+
+<div mat-dialog-content class="content-form">
+
+    <form action="" #form="ngForm" (ngSubmit)="submit(form)">
+        <div class="card-form">
+            <div class="required">
+                <mat-label>Name: *</mat-label>
+                <mat-form-field class="required" appearance="fill">
+                    <input matInput placeholder="Ex. João Siqueira Neto" [(ngModel)]="personRegistro.name" name="name"
+                        maxlength="50" required>
+                </mat-form-field>
+                <mat-label>Email: *</mat-label>
+                <mat-form-field appearance="fill">
+                    <input type="email" matInput placeholder="Ex. email@example.com" [(ngModel)]="personRegistro.email"
+                        [formControl]="email" maxlength="50" required>
+                    <mat-error *ngIf="email.hasError('email') && !email.hasError('required')">
+                        Please enter a valid email address
+                    </mat-error>
+                    <mat-error *ngIf="email.hasError('required')">
+                        Email is <strong>required</strong>
+                    </mat-error>
+                </mat-form-field>
+                <div class="skill" >
+                    <div class="area">
+
+                        <mat-label>Skill:</mat-label>
+                        <mat-form-field appearance="fill">
+                            <mat-label>Area:</mat-label>
+                            <mat-select (ngModelChange)="changeValueSkill()" name="area"
+                                [(ngModel)]="personSkillRegistro.area" [compareWith]="compareById"
+                                (ngModelChange)="getSkill(personSkillRegistro.area.id)" required>
+                                <mat-option>
+                                    <ngx-mat-select-search [formControl]="filterCtrlAreas" placeholderLabel="Search"
+                                        noEntriesFoundLabel="Your search returned no results."></ngx-mat-select-search>
+                                </mat-option>
+                                <mat-option *ngFor="let area of filteredAreas | async" [value]="area">
+                                    {{area.name}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                    <div class="expertise">
+                        <mat-form-field appearance="fill">
+                            <mat-label>Expertise:</mat-label>
+                            <mat-select [disabled]="disableSelectSkill.value" name="skill"
+                                [(ngModel)]="personSkillRegistro.skill" [compareWith]="compareById" required>
+                                <mat-option *ngFor="let expertise of expertises " [value]="expertise">
+                                    {{expertise.name}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                    <div class="level">
+                        <mat-label>Skill Level: *</mat-label>
+
+                        <mat-form-field appearance="fill">
+                            <mat-select placeholder="Ex. Junior" name="skillLevel"
+                                [(ngModel)]="personSkillRegistro.skillLevel" [compareWith]="compareById" required>
+
+                                <mat-option *ngFor="let skillLevel of levels" [value]="skillLevel">
+                                    {{skillLevel.name}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                </div>
+                
+            </div>
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        Address: <span style="opacity: 0.7;"> (Optional)</span>
+                    </mat-panel-title>
+                    <mat-panel-description>
+                        Type your address
+                    </mat-panel-description>
+                </mat-expansion-panel-header>
+                <div class="optional">
+                    <div class="address">
+                        <div class="address-street">
+                            <mat-label>Street:</mat-label>
+                            <mat-form-field appearance="fill">
+                                <input matInput [(ngModel)]="personRegistro.street" name="street" maxlength="50">
+                            </mat-form-field>
+                        </div>
+                        <div class="address-number">
+                            <mat-label>Number:</mat-label>
+                            <mat-form-field appearance="fill">
+                                <input matInput [(ngModel)]="personRegistro.number" name="number">
+                            </mat-form-field>
+                        </div>
+                    </div>
+
+                    <div class="address">
+                        <div class="address-district">
+                            <mat-label>District:</mat-label>
+                            <mat-form-field appearance="fill">
+                                <input matInput [(ngModel)]="personRegistro.district" name="district" maxlength="50">
+                            </mat-form-field>
+                        </div>
+
+                        <div class="address-city">
+                            <mat-label>City:</mat-label>
+                            <mat-form-field appearance="fill">
+                                <input matInput [(ngModel)]="personRegistro.city" name="city" maxlength="50">
+                            </mat-form-field>
+                        </div>
+                    </div>
+
+                    <div class="address">
+                        <div class="address-state">
+                            <mat-label>State:</mat-label>
+                            <mat-form-field appearance="fill">
+                                <input matInput [(ngModel)]="personRegistro.state" name="state" maxlength="50">
+                            </mat-form-field>
+                        </div>
+                        <div class="address-country">
+                            <mat-label>Country</mat-label>
+                            <mat-form-field appearance="fill">
+                                <input matInput [(ngModel)]="personRegistro.country" name="country" maxlength="50">
+                            </mat-form-field>
+                        </div>
+                    </div>
+                </div>
+            </mat-expansion-panel>
+            <div mat-dialog-actions class="buttons">
+                <button mat-button color="primary" type="submit" [disabled]="form.invalid">
+                    <mat-icon inline="true">save</mat-icon>
+                    Save
+                </button>
+                <button mat-button (click)="closeModal()" color="warn" type="reset">
+                    <mat-icon inline="true">close</mat-icon>
+                    Cancel
+                </button>
+            </div>
+        </div>
+    </form>
+</div>

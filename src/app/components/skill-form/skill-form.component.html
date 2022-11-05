@@ -1,0 +1,39 @@
+<form action="" #form="ngForm" (ngSubmit)="create(form)">
+
+    <div class="card-form">
+
+        <div class="area-btn-add-area">
+            <button mat-button disableRipple="false" type="button" color="primary">
+                New area
+                <mat-icon inline="true">
+                    add
+                </mat-icon>
+            </button>
+        </div>
+        <mat-form-field class="select-area" appearance="fill">
+            <mat-label>Area</mat-label>
+            <mat-select name="area" [(ngModel)]="skill.area" required>
+
+                <mat-option *ngFor="let area of areas" [value]="area">
+                    {{area.name}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field class="input-expertise" appearance="fill">
+            <mat-label>Expertise</mat-label>
+            <input matInput placeholder="Ex. computer vision" name="name" [(ngModel)]="skill.name" required="">
+        </mat-form-field>
+
+
+        <button mat-button color="primary" type="submit" [disabled]="form.invalid">
+            <mat-icon inline="true">save</mat-icon>
+            Save
+        </button>
+        <button mat-button color="warn" type="reset">
+            <mat-icon inline="true">close</mat-icon>
+            Cancel
+        </button>
+
+    </div>
+
+</form>

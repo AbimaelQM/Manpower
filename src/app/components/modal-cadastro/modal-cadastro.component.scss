@@ -1,0 +1,29 @@
+  .controle-modal {
+
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      height: 9%;
+      padding-right: 1%;
+      box-sizing: border-box;
+      #btn-close {
+          background-color: rgba(255, 255, 255, 0);
+          color: red;
+          box-shadow: none;
+      }
+
+      #btn-close:focus-visible {
+
+          background-color: transparent;
+      }
+
+
+  }
+
+  .card-header{
+
+    min-height: 91%;
+    margin: 0;
+    box-sizing: border-box;
+ 
+  }

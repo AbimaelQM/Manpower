@@ -1,0 +1,83 @@
+<div class="mat-elevation-z4 box-table">
+    <section class="table-container" tabindex="0">
+
+        <table mat-table [dataSource]="data" [(ngModel)]="data" matSort (matSortChange)="announceSortChange($event)">
+
+            <ng-container matColumnDef="person">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by person">
+                    Person
+                </th>
+                <td mat-cell *matCellDef="let element"> {{element?.person?.name || 'TBH'}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="type">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by type">
+                    Type
+                </th>
+                <td mat-cell *matCellDef="let element"> {{element?.type?.name}} </td>
+            </ng-container>
+            
+            <ng-container matColumnDef="skill">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by weight">
+                    Skill
+                </th>
+                <td mat-cell *matCellDef="let element"> {{element?.area?.name}} | {{element?.skill?.name}} </td>
+            </ng-container>
+            <ng-container matColumnDef="skillLevel">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by weight">
+                    Skill Level
+                </th>
+                <td mat-cell *matCellDef="let element"> {{element?.skillLevel.name}} </td>
+            </ng-container>
+            
+            <ng-container matColumnDef="team">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by weight">
+                    Team
+                </th>
+                <td mat-cell *matCellDef="let element"> {{element?.team?.name}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="subteam">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by weight">
+                    Subteam
+                </th>
+                <td mat-cell *matCellDef="let element"> {{element?.subTeam?.name || '-'}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="operations" stickyEnd>
+                <th mat-header-cell *matHeaderCellDef class="column-controle">
+                    Operations
+                </th>
+                <td mat-cell  *matCellDef="let element" class="column-controle">
+                    <div class="controle-table">
+
+                        <button mat-icon-button  (click)="open(element)">
+                            <mat-icon>
+                                launch
+                            </mat-icon>
+                        </button>
+                        <button mat-icon-button color="primary" (click)="edit(element)">
+                            <mat-icon>
+                                create
+                            </mat-icon>
+                        </button>
+                        <button mat-icon-button color="warn" (click)="delete(element)">
+                            <mat-icon>
+                                delete
+                            </mat-icon>
+                        </button>
+                    </div>
+                </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns;sticky: true"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+            <tr class="mat-row" *matNoDataRow>
+                <td class="mat-cell" colspan="4">No data matching the filte</td>
+            </tr>
+        </table>
+    </section>
+    <mat-paginator [pageSizeOptions]="[10, 20, 50, 100]" [pageSize]="10" [length]="totalElements" (page)="nextPage($event)" aria-label="Selecionar página de usuários" slot>
+    </mat-paginator>
+</div>

@@ -1,0 +1,117 @@
+@import "../../variaveis.scss";
+
+.header {
+
+    width: 100%;
+    background-color: $color_blue_dark;
+    padding: 1%;
+    box-sizing: border-box;
+    color: white;
+
+    h3 {
+
+        margin: 0;
+        margin-left: 1%;
+    }
+}
+
+
+.icon-btn-opcao {
+    width: 5%;
+    height: 5%;
+    // width: 55px;
+    // height: 55px;
+}
+
+.mat-dialog-title {
+    margin: 0;
+}
+
+h4 {
+    margin-bottom: 10px;
+}
+
+.data {
+    display: flex;
+    height: 2em;
+    align-items: center;
+    margin: 0;
+    justify-content: center;
+    background-color: hsla(0, 0%, 27%, 0.274);
+
+    p {
+        // color: white;
+        width: 80%;
+        margin: 0;
+    }
+}
+
+.container {
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+
+    .container-content {
+        box-sizing: border-box;
+        height: 100%;
+        width: 80%;
+        max-height: 90%;
+        margin: 0 auto;
+        padding: auto;
+
+        h2 {
+            margin-bottom: 4px;
+        }
+
+        .requirements {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            margin-bottom: 10px;
+
+            .type-modality {
+                display: flex;
+                flex-direction: row;
+            }
+
+            .skill {
+                display: flex;
+                flex-direction: row;
+                font-size: 16px;
+                align-items: center;
+                gap: 6px;
+            }
+        }
+
+        .atributs {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 10px;
+            gap: 14px;
+
+            .address {
+                font-size: 16px;
+            }
+
+            .team-subteam {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                gap: 6px;
+                font-size: 16px;
+            }
+        }
+
+        .person-atributs {
+            margin-bottom: 10px;
+            .person {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                gap: 6px;
+                font-size: 16px;
+            }
+        }
+    }
+}

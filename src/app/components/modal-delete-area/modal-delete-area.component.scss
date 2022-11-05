@@ -1,0 +1,41 @@
+
+.areas-container-items{
+    // display: none;
+    box-sizing: border-box;
+    border: 1px solid rgb(200, 200, 200);
+    width: 100%;
+    max-height: 100px;
+    overflow-y: auto;
+    border-radius: 5px;
+    overflow-x: hidden;
+
+
+    .area-item{
+
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100%;
+        height: 30px;
+        display: flex;
+        box-sizing: border-box;
+        align-items: center;
+        
+
+        span{
+
+            margin-left: 4%;
+            display: inline-block;
+            max-width: 80%;
+            overflow-x: hidden;
+            white-space: nowrap;
+        }
+
+
+    }
+
+    .area-item:hover{
+
+        background-color: rgb(232, 232, 232);
+    }
+}

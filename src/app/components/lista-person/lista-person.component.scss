@@ -1,0 +1,71 @@
+.table-container {
+    width: 100%;
+    min-height: 0px;
+    max-height: 600px;
+    overflow: auto;
+    margin: 0 auto;
+    margin-top: 4%;
+    ::ng-deep .mat-paginator-range-label{
+        visibility: hidden;
+    }
+    
+    .mat-paginator-range-label::after{
+        content: "PAGE";
+    }
+}
+
+.table-container::-webkit-scrollbar{
+
+    height: 10px;
+    width: 10px;
+    background-color: rgb(106, 106, 106);
+}
+
+.box-table{
+
+    margin: 2%;
+
+}
+.table-container::-webkit-scrollbar-thumb {
+    background: hsla(0, 0%, 88%, 0.875);
+    border-radius: 2px;
+}
+
+table {
+    width: 100%;
+
+}
+
+
+.mat-form-field {
+    font-size: 14px;
+    width: 100%;
+}
+
+td,
+th {
+    width: 9%;
+    text-overflow: ellipsis;
+    white-space: word-wrap;
+    overflow: hidden;
+}
+th.mat-header-cell:first-of-type, td.mat-cell:first-of-type, td.mat-footer-cell:first-of-type{
+    padding-left: 20px;
+}
+th.mat-header-cell, td.mat-cell, td.mat-footer-cell {
+    padding-left: 12px;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+}
+th.mat-header-cell:last-of-type, td.mat-cell:last-of-type, td.mat-footer-cell:last-of-type {
+    padding-right: 24px;
+    justify-content: center;
+    width: 4%;
+}
+tr{
+    width: 100%;
+}
+.controle-table {
+
+    display: flex;
+}

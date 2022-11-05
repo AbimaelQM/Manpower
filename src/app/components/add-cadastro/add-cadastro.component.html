@@ -1,0 +1,25 @@
+
+<div class="area-buttons">
+
+    <div [class]="area_opcao">
+        <button mat-fab class="btn-opcao" (mousedown)="openModalRegisterJob()">
+            <span>New Job</span>
+            <img src="../../../assets/img/job.svg" class="icon-btn-opcao" alt="icon team">
+        </button>
+        <button mat-fab class="btn-opcao" (mousedown)="openModalRegisterTeam()">
+            <span>New Team</span>
+            <img src="../../../assets/img/team.svg" class="icon-btn-opcao" alt="icon team">
+        </button>
+        <button mat-fab class="btn-opcao" (mousedown)="openModalRegisterSkill()">
+            <span>New Skill</span>
+            <img src="../../../assets/img/skill-icon.svg" class="icon-btn-opcao" alt="icon skill">
+        </button>
+        <button mat-fab class="btn-opcao" (mousedown)="openModalRegisterPerson()">
+            <span>New Person</span>
+            <img src="../../../assets/img/person.svg" class="icon-btn-opcao" alt="icon person">
+        </button>
+    </div>
+    <button mat-fab class="plusCadastro" (focusout)="showButtons(false)" (click)="showButtons(!active)">
+        <mat-icon [id]="id_icon">add</mat-icon>
+    </button>
+</div>

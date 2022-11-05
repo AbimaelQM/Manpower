@@ -1,0 +1,27 @@
+@import '../../variaveis.scss';
+
+.header{
+
+
+    background-color: $color_blue_dark;
+    padding: 1%;
+
+    h3{
+
+        margin: 0;
+        margin-left: 1%;
+        color: white;
+    }
+}
+
+form{
+
+    display: flex;
+    flex-direction: column;
+    padding: 0 10%;
+
+    .buttons{
+        margin: auto;
+        justify-content: space-between;
+    }
+}

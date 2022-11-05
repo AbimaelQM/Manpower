@@ -1,0 +1,50 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.main-div{
+  background-color: #03376B;
+}
+.content{
+
+  position: relative;
+  min-width: 300px;
+}
+.form-input{
+  width: 100%;
+}
+.header{
+  color: #03376B;
+  background-color:#fff ;
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+.login-form{
+  padding: 20px;
+  height: 100%;
+  max-width: 370px;
+}
+#forget-password{
+  margin-bottom: 20px;
+  color: #03376B;
+  cursor: pointer;
+}
+.create-btn{
+  background-color: #03376B;
+  margin-right:30px;
+  padding: 0px 10px;
+  top: 10px;
+}
+.sing-btn{
+  background-color: #238636;
+  top: 10px;
+}
+
+
+#spinner{
+
+  margin-left: 46%;  
+  margin-top: 20%;
+  position: absolute;
+  z-index: 100;
+}

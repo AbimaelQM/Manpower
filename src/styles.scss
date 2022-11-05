@@ -1,0 +1,35 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; overflow-x: hidden;}
+
+body { margin: 0;padding: 0; overflow: none;font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+// esse estilo tira o espaçamento de margin interna de todos os modais
+.modal-container .mat-dialog-container{
+    
+    box-sizing: border-box;
+    padding: 0;
+}
+
+
+.modal-container .mat-dialog-container::-webkit-scrollbar{
+
+    width: 10px;
+    background-color: rgb(191, 191, 191);
+}
+
+.modal-container .mat-dialog-container::-webkit-scrollbar-thumb {
+    background: hsla(0, 0%, 88%, 0.875);
+    border-radius: 5px;
+}
+
+body::-webkit-scrollbar{
+
+    width: 10px;
+    background-color: rgb(106, 106, 106);
+}
+
+body::-webkit-scrollbar-thumb {
+    background: hsla(0, 0%, 88%, 0.875);
+    border-radius: 5px;
+}

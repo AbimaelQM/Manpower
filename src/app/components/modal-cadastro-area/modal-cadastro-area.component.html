@@ -1,0 +1,24 @@
+<div mat-dialog-title>
+    New Area
+</div>
+
+<div mat-dialog-content>
+    <form action="" #form="ngForm" (ngSubmit)="createArea(form)">
+
+        <mat-form-field class="input-area" appearance="fill">
+            <mat-label>Area</mat-label>
+            <input matInput type="text" placeholder="Ex: Data mining" name="name" [(ngModel)]="area.name" maxlength="50" required>
+            <button matSuffix mat-icon-button aria-label="Clear" [disabled]="form.invalid">
+                <mat-icon>add</mat-icon>
+            </button>
+        </mat-form-field>
+
+    </form>
+</div>
+
+<div mat-dialog-actions>
+    
+    <button mat-dialog-close mat-button color="warn">
+        Cancel
+    </button>
+</div>

@@ -1,0 +1,162 @@
+<div mat-dialog-title class="header">
+
+    <h3>Job registration</h3>
+</div>
+<div mat-dialog-content class="content-form">
+    <form action="" #form="ngForm" (ngSubmit)="submit(form)">
+        <div class="card-form">
+
+            <div class="skill">
+                <div class="area">
+
+                    <mat-label>Skill:</mat-label>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Area:</mat-label>
+                        <mat-select (ngModelChange)="changeValueSkill()" name="area" [(ngModel)]="jobRegister.area"
+                            [compareWith]="compareById" (ngModelChange)="getSkill(jobRegister.area.id)" required>
+                            <mat-option>
+                                <ngx-mat-select-search [formControl]="filterCtrlAreas" placeholderLabel="Search"
+                                    noEntriesFoundLabel="Your search returned no results."></ngx-mat-select-search>
+                            </mat-option>
+                            <mat-option *ngFor="let area of filteredAreas | async" [value]="area">
+                                {{area.name}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="expertise">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Expertise:</mat-label>
+                        <mat-select [disabled]="disableSelectSkill.value" name="skill" [(ngModel)]="jobRegister.skill"
+                            [compareWith]="compareById" required>
+                            <mat-option *ngFor="let expertise of expertises " [value]="expertise">
+                                {{expertise.name}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="level">
+                    <mat-label>Skill Level: *</mat-label>
+
+                    <mat-form-field appearance="fill">
+                        <mat-select placeholder="Ex. Junior" name="skillLevel" [(ngModel)]="jobRegister.skillLevel"
+                            [compareWith]="compareById" required>
+
+                            <mat-option *ngFor="let skillLevel of levels" [value]="skillLevel">
+                                {{skillLevel.name}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="mod-type">
+                <div class="type">
+                    <mat-label>Type: *</mat-label>
+                    <mat-form-field appearance="fill">
+                        <mat-select placeholder="Ex. FTE" name="type" [(ngModel)]="jobRegister.type"
+                            [compareWith]="compareById" required>
+
+                            <mat-option *ngFor="let type of types " [value]="type">
+                                {{type.name}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="modality">
+                    <mat-label>Modality: *</mat-label>
+                    <mat-form-field appearance="fill">
+                        <mat-select [(ngModel)]="jobRegister.modality" placeholder="Ex. Remote" name="modality"
+                            [compareWith]="compareById" required>
+
+                            <mat-option *ngFor="let modality of modalities " [value]="modality">{{modality.name}}
+                            </mat-option>
+                        </mat-select>
+
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="team">
+                <div class="team-name" >
+                    <mat-label>Team: *</mat-label>
+                    <mat-form-field appearance="fill">
+                        <mat-select placeholder="Ex. Edge" name="team" (ngModelChange)="changeValueSubTeam()"
+                            [(ngModel)]="jobRegister.team" [compareWith]="compareById"
+                            (ngModelChange)="getSubTeams(jobRegister.team.id)" required>
+                            <mat-option>
+                                <ngx-mat-select-search [formControl]="filterCtrlTeams" placeholderLabel="Search"
+                                    noEntriesFoundLabel="Your search returned no results."></ngx-mat-select-search>
+                            </mat-option>
+                            <mat-option *ngFor="let team of filteredTeams | async " [value]="team">
+                                {{team.name}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="sub-team">
+                    <mat-label>Sub Team: *</mat-label>
+                    <mat-form-field appearance="fill">
+                        <mat-select placeholder="Ex. Meetings" name="subTeam" [disabled]="disableSelectSubTeam.value"
+                            [(ngModel)]="jobRegister.subTeam" [compareWith]="compareById" required>
+
+                            <mat-option *ngFor="let subTeam of subTeams " [value]="subTeam">
+                                {{subTeam.name}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="people" *ngIf="jobRegister.id">
+                <div class="person">
+                    <mat-label>Person:</mat-label>
+                    <mat-form-field appearance="fill">
+
+                    <mat-select name="person" [(ngModel)]="jobRegister.person"
+                        [compareWith]="compareById" required>
+                        <mat-option>
+                            <ngx-mat-select-search [formControl]="filterCtrlPerson" placeholderLabel="Search"
+                                noEntriesFoundLabel="Your search returned no results."></ngx-mat-select-search>
+                        </mat-option>
+                        <mat-option *ngFor="let person of filteredPersons | async" [value]="person">
+                            {{person.name}}
+                        </mat-option>
+                    </mat-select>
+
+
+                    </mat-form-field>
+                </div>
+                <div class="remove"  *ngIf="jobRegister.id">
+                    <button class="btnremove" mat-stroked-button color="warn" type="button" (click)="removePerson()">Remove</button>
+                </div>
+            </div>
+            <div class="address">
+                <mat-label>Address: *</mat-label>
+                <mat-form-field appearance="fill">
+                    <mat-select name="address" [(ngModel)]="jobRegister.address" [compareWith]="compareById" placeholder="Select..." required>
+                       
+                        <mat-option *ngFor="let address of addresses " [value]="address">
+                            {{address.city}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="description">
+                <mat-label>Other requirements:</mat-label>
+                <mat-form-field appearance="fill">
+                    <textarea [(ngModel)]="jobRegister.description" name="description" matInput placeholder="Ex. development skills desirable." maxlength="500"></textarea>
+                </mat-form-field>
+            </div>
+            <div mat-dialog-actions class="buttons">
+                <button mat-button color="primary" type="submit" [disabled]="form.invalid">
+                    <mat-icon inline="true">save</mat-icon>
+                    Save
+                </button>
+                <button mat-button color="warn" type="reset" (click)="closeModal()">
+                    <mat-icon inline="true">close</mat-icon>
+                    Cancel
+                </button>
+
+            </div>
+        </div>
+    </form>
+
+</div>

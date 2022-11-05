@@ -1,0 +1,37 @@
+<div mat-dialog-title class="header">
+    <h3 >
+        Others registration
+    </h3>
+
+</div>
+<div mat-dialog-content class="content-form">
+
+    <main>
+
+        <mat-tab-group dynamicHeight [selectedIndex]="tabIndex" mat-align-tabs="center" animationDuration="0ms"
+            class="tab-view-table">
+            <mat-tab label="Address">
+                <div class="tab">
+                    <app-address-form></app-address-form>
+                </div>
+            </mat-tab>
+            <mat-tab label="Type">
+                <div class="tab">
+                    <app-type-form></app-type-form>
+                </div>
+            </mat-tab>
+            <mat-tab label="Modality">
+                <div class="tab">
+                    <app-modality-form></app-modality-form>
+                </div>
+            </mat-tab>
+
+            <mat-tab label="Skill Level">
+                <div class="tab">
+                    <app-skill-level-form></app-skill-level-form>
+                </div>
+            </mat-tab>
+
+        </mat-tab-group>
+    </main>
+</div>

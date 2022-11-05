@@ -1,0 +1,16 @@
+
+<mat-card class="chart-container">
+    <mat-card-content>
+        <!-- doughnut -->
+        <div class="container-1">
+            <div class="area-graphic-team-job">
+
+                <app-graphic class="" [idGraphic]="'chartJobTeam'" [data]="dataJobTeam" [type]="'bar'" [title]="'Number of jobs X team'" [label]="'job x team'"></app-graphic>
+            </div>
+            <div class="area-graphic-team-active">
+
+                <app-graphic [idGraphic]="'chartJobActive'" [data]="dataJobActive" [type]="'doughnut'" [title]="'Number of jobs X Active'" [label]="'area'"></app-graphic>
+            </div>
+        </div>
+    </mat-card-content>
+</mat-card>

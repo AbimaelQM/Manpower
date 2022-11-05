@@ -1,0 +1,70 @@
+<div class="container">
+
+    <div id="box-conteudo">
+        <mat-card class="box-info">
+
+            <div class="info-quant-job">
+                <h3>Number of job</h3>
+                <circle-progress class="progress-clircle" [maxPercent]="100" [percent]="this.porcent" [radius]="80"
+                    [outerStrokeWidth]="13" [innerStrokeWidth]="8" [outerStrokeColor]="colorPrimary"
+                    [innerStrokeColor]="colorSecondary" [animation]="true" [animationDuration]="300"
+                    [subtitle]="this.labelSubTitle" [title]="this.labelTitle" [showUnits]="false">
+                </circle-progress>
+            </div>
+            <div class="info-team">
+
+                <div class="info-team-dados">
+                    <button (click)="editTeam()" mat-raised-button color="primary" class="btn-edit-team">
+                        <mat-icon>
+                            border_color
+                        </mat-icon>
+                        Edit Team
+                    </button>
+                    <h4>Team: <strong>{{team.name}}</strong></h4>
+                    <h5>slt: {{team.usuario.name}}</h5>
+                </div>
+            </div>
+        </mat-card>
+        <mat-tab-group mat-stretch-tabs animationDuration="0ms">
+            <mat-tab label="Jobs">
+                <app-lista-jobs></app-lista-jobs>
+            </mat-tab>
+            <mat-tab label="Sub-teams">
+                <div class="controle-sub-team">
+                    <button mat-button color="primary" (click)="newSubteam()">
+                        New Sub-Team
+                    </button>
+                </div>
+
+                <mat-list class="lista-subteam">
+
+                    <h3 *ngIf="!listaSubTeam.length">No subteam created</h3>
+                    <mat-list-item *ngFor="let item of listaSubTeam"> 
+
+                        <div class="item-subteam">
+                            
+                            {{item.name}}
+                            <div class="controle-item-subteam">
+                                <button mat-icon-button color="primary" (click)="editSubteam(item)">
+                                    <mat-icon>
+                                        create
+                                    </mat-icon>
+                                </button>
+                                <button mat-icon-button color="warn" (click)="removeSubteam(item)">
+                                    <mat-icon>
+                                        delete
+                                    </mat-icon>
+                                </button>
+                            </div>
+                        </div>
+                        <mat-divider> </mat-divider>
+
+                    </mat-list-item>
+                   
+                </mat-list>
+            
+            </mat-tab>
+        </mat-tab-group>
+    </div>
+
+</div>

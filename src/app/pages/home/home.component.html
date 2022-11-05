@@ -1,0 +1,158 @@
+<header>
+  <mat-toolbar class="header">
+    <div class="area-logo">
+
+      <img src="../../../assets/img/icon-motorola.png" id="logo" alt="logo_motorola">
+    </div>
+    <span>Manpower Management</span>
+
+    <div id="user">
+
+      <img *ngIf="loggedIn" src="{{ user?.photoUrl }}" alt="Profile" class="photoUrl" [matMenuTriggerFor]="menu">
+      <mat-icon *ngIf="!loggedIn" class="photoUrl" [matMenuTriggerFor]="menu">person</mat-icon>
+
+      <mat-menu #menu="matMenu">
+       
+        <button mat-menu-item (click)="signOut()">Sign out</button>
+      </mat-menu>
+
+    </div>
+  </mat-toolbar>
+</header>
+
+<div class="container">
+  <mat-drawer-container class="drawer" autosize>
+
+    <mat-drawer #drawer [opened]="menuOpen" class="menu-lateral" mode="side">
+
+      <app-menuside class="menu-comp"  (eventNavTbTeam)="interseptEventNewTeam($event)"></app-menuside>
+    </mat-drawer>
+    <mat-drawer-content class="main">
+      <button mat-mini-fab class="btn-menu" (click)="menuOpen=!menuOpen">
+
+        <mat-icon *ngIf="!menuOpen">chevron_right</mat-icon>
+
+        <mat-icon *ngIf="menuOpen">chevron_left</mat-icon>
+
+      </button>
+      <main>
+
+
+        <app-filtro (eventoFiltro)="filtro($event)"></app-filtro>
+
+        <mat-tab-group  [selectedIndex]="tabIndex" animationDuration="0ms" class="tab-view-table">
+          <mat-tab label="Jobs">
+            <app-lista-jobs></app-lista-jobs>
+          </mat-tab>
+          <mat-tab label="Skills">
+            <app-lista-skill></app-lista-skill>
+          </mat-tab>
+          <mat-tab label="Team">
+            <app-cards-team></app-cards-team>
+          </mat-tab>
+
+          <mat-tab label="Person">
+            <app-lista-person></app-lista-person>
+          </mat-tab>
+          <mat-tab label="Users">
+            <app-lista-users></app-lista-users>
+          </mat-tab>
+          <mat-tab label="Others">
+            <mat-accordion class="accordion">
+              <mat-expansion-panel class="accordion-item">
+                <mat-expansion-panel-header>
+                  <mat-panel-title>
+                    Address
+                  </mat-panel-title>
+                  <mat-panel-description>
+                    Addresses registrations
+                  </mat-panel-description>
+                </mat-expansion-panel-header>
+                <app-lista-address></app-lista-address>
+              </mat-expansion-panel >
+
+              <mat-expansion-panel class="accordion-item">
+                <mat-expansion-panel-header>
+                  <mat-panel-title>
+                    Type
+                  </mat-panel-title>
+                  <mat-panel-description>
+                    Job types registrations
+                  </mat-panel-description>
+                </mat-expansion-panel-header>
+                <app-lista-type></app-lista-type>
+              </mat-expansion-panel>
+
+              <mat-expansion-panel class="accordion-item">
+                <mat-expansion-panel-header>
+                  <mat-panel-title>
+                    Modality
+                  </mat-panel-title>
+                  <mat-panel-description>
+                    Job modalities registrations
+                  </mat-panel-description>
+                </mat-expansion-panel-header>
+                <app-lista-modality></app-lista-modality>
+              </mat-expansion-panel>
+
+              <mat-expansion-panel class="accordion-item">
+                <mat-expansion-panel-header>
+                  <mat-panel-title>
+                    Area
+                  </mat-panel-title>
+                  <mat-panel-description>
+                    Skills area registrations
+                  </mat-panel-description>
+                </mat-expansion-panel-header>
+                <app-lista-area></app-lista-area>
+              </mat-expansion-panel>
+
+              <mat-expansion-panel class="accordion-item">
+                <mat-expansion-panel-header>
+                  <mat-panel-title>
+                    Skill Level
+                  </mat-panel-title>
+                  <mat-panel-description>
+                    Skill levels registrations
+                  </mat-panel-description>
+                </mat-expansion-panel-header>
+                <app-lista-skill-level></app-lista-skill-level>
+              </mat-expansion-panel>
+            </mat-accordion>
+          </mat-tab>
+        </mat-tab-group>
+
+        <div class="view-statistcs">
+
+          <app-statistics-job></app-statistics-job>
+        </div>
+
+
+        <app-add-cadastro (eventNewSkill)="interseptEventNewSkill($event)"
+          (eventNewPerson)="interseptEventNewPerson($event)" (eventNewJob)="interseptEventNewJob($event)"
+          (eventNewTeam)="interseptEventNewTeam($event)"
+         
+          ></app-add-cadastro>
+
+      </main>
+
+      <!-- <footer>
+                <div class="footer">
+                    <div id="div1">
+                        <a href="https://www.motorola.com.br/"><img id="logo-moto" src="../../../assets/img/logo-moto.png" alt=""></a>
+                    </div>
+                    <div id="div2">
+                        <img src="../../../assets/img/insta.png" alt="">
+                        <img src="../../../assets/img/tt.png" alt="">
+                        <img src="../../../assets/img/youtube.png" alt="">
+                    </div>
+                    <div id="div3">
+                        <img src="../../../assets/img/icon-motorola - Copia.png" id="webacademy" alt="">
+                    </div>
+                </div>
+            </footer> -->
+
+    </mat-drawer-content>
+
+  </mat-drawer-container>
+</div>

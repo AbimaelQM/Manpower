@@ -1,0 +1,21 @@
+<div class="card-area">
+  <mat-card *ngFor="let item of teams" class="card-team">
+    <mat-card-title-group>
+      <mat-card-title>{{item?.name}}</mat-card-title>
+      <mat-card-subtitle>SLT: {{item?.usuario?.name}}</mat-card-subtitle>
+    </mat-card-title-group>
+    <mat-card-content>
+      On Board
+      <p id="icons-card">
+        <button mat-icon-button (click)="viewTeam(item)"><mat-icon>launch</mat-icon></button>
+        <button mat-icon-button color="primary" (click)="edit(item)">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-icon-button color="warn" (click)="delete(item)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </p>
+    </mat-card-content>
+  </mat-card>
+
+</div>

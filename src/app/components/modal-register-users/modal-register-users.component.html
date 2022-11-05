@@ -1,0 +1,69 @@
+<div mat-dialog-title class="header">
+    <h3>Register User</h3>
+</div>
+
+<div class="container">
+    <div class="container-content">
+
+        <form action="" #form="ngForm" (submit)="submit(form)">
+
+            <mat-label>Name</mat-label>
+            <mat-form-field appearance="fill" class="input">
+                <input matInput placeholder="Maria da Silva" name="name" [(ngModel)]="usuario.name"
+                    [value]="usuario.name" required>
+            </mat-form-field>
+            <mat-label>Email</mat-label>
+            <mat-form-field appearance="fill" class="input">
+                <input matInput placeholder="pat@example.com" name="email" type="email" [(ngModel)]="usuario.email"
+                    [value]="usuario.email" required>
+            </mat-form-field>
+            <mat-label>User role</mat-label>
+            <mat-form-field appearance="fill">
+                <mat-select [(value)]="usuario.role" name="role">
+                    <mat-option *ngFor="let item of listRole" [value]="item.role">
+                        {{item.label}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-label>Status user</mat-label>
+            <mat-radio-group aria-label="Status" name="active" color="primary" [(ngModel)]="usuario.active"  required>
+                <mat-radio-button [checked]="true" [value]="true">Active</mat-radio-button>
+                <mat-radio-button [value]="false">Disabled</mat-radio-button>
+            </mat-radio-group>
+
+            <mat-label>Password</mat-label>
+            <mat-form-field appearance="fill">
+                <input matInput [(ngModel)]="usuario.password" [type]="hide ? 'password' : 'text'" required>
+                <button type="button" mat-icon-button matSuffix (click)="hide = !hide"
+                    [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+            </mat-form-field>
+
+            <mat-label>Repeat password</mat-label>
+            <mat-form-field appearance="fill">
+                <input matInput [(ngModel)]="passwordRepeat" [type]="hide2 ? 'password' : 'text'" (blur)="validaSenha()" [disabled]="!usuario.password" required>
+                <button type="button" mat-icon-button matSuffix (click)="hide2 = !hide2"
+                    [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide2">
+                    <mat-icon>{{hide2 ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+            </mat-form-field>
+
+            <p *ngIf="passwordIsEqual" color="warn">Password are not the same!</p>
+
+
+            <div mat-dialog-actions>
+
+                <button mat-button color="primary" type="submit" [disabled]="form.invalid && passwordIsEqual">
+                    <mat-icon inline="true">save</mat-icon>
+                    Save
+                </button>
+                <button mat-button color="warn" type="reset" (click)="closeModal()">
+                    <mat-icon inline="true">close</mat-icon>
+                    Cancel
+                </button>
+            </div>
+        </form>
+
+    </div>
+</div>
