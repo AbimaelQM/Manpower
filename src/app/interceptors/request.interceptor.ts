@@ -24,21 +24,32 @@ export class RequestInterceptor implements HttpInterceptor {
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<unknown>> {
 
-
     const cloneRequest = request.clone({
-
+      
       withCredentials: true,
       setHeaders: {
-        'Authorization': 'Basic' + sessionStorage.getItem('basicauth'),
         'Content-Type': 'application/json',
         'Access-Control-Allow-Origin': '/*',
         'Access-Control-Allow-Methods': 'GET, POST, OPTIONS, PUT, PATCH, DELETE',
         'Access-Control-Allow-Headers':
         'Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers'
       }
-
+    
     });
+    if (sessionStorage.getItem('basicauth')){
+      const cloneRequest = request.clone({
 
+        setHeaders: {
+          'Authorization': 'Basic' + sessionStorage.getItem('basicauth'),
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': '/*',
+          'Access-Control-Allow-Methods': 'GET, POST, OPTIONS, PUT, PATCH, DELETE',
+          'Access-Control-Allow-Headers':
+          'Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers'
+        }
+  
+      });
+    }    
 
     return next.handle(cloneRequest).pipe(
       tap({
