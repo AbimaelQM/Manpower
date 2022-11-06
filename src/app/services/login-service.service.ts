@@ -102,6 +102,7 @@ export class LoginService {
         this.authenticated = false;
         this.usuario = <Usuario>{};
         sessionStorage.removeItem('usuario');
+        sessionStorage.removeItem('basicauth');
         this.router.navigate(['/login']);
       }
     })
