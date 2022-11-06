@@ -76,6 +76,8 @@ export class LoginService {
         if (usuario) {
           this.authenticated = true;
           this.usuario = usuario;
+          let authString = credenciaisCodificadas;
+          sessionStorage.setItem('basicauth', authString);
           sessionStorage.setItem('usuario', JSON.stringify(usuario));
           this.router.navigate(['/home']);
         }
