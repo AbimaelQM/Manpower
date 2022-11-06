@@ -27,7 +27,7 @@ export class RequestInterceptor implements HttpInterceptor {
 
     const cloneRequest = request.clone({
 
-      // withCredentials: true,
+      withCredentials: true,
       setHeaders: {
         'Authorization': 'Basic' + sessionStorage.getItem('basicauth'),
         'Content-Type': 'application/json',
