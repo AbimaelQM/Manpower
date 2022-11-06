@@ -24,7 +24,7 @@ export class RequestInterceptor implements HttpInterceptor {
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<unknown>> {
 
-    const cloneRequest = request.clone({
+    let cloneRequest = request.clone({
       
       withCredentials: true,
       setHeaders: {
@@ -37,7 +37,7 @@ export class RequestInterceptor implements HttpInterceptor {
     
     });
     if (sessionStorage.getItem('basicauth')){
-      const cloneRequest = request.clone({
+      cloneRequest = request.clone({
 
         setHeaders: {
           'Authorization': 'Basic' + sessionStorage.getItem('basicauth'),
