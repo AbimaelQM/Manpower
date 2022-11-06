@@ -74,7 +74,6 @@ export class ModalCadastroPersonComponent implements OnInit {
   ngOnInit(): void {
 
     if (this.data.person) {
-      console.log(this.data.person)
       this.personRegistro = this.data?.person.person;
       this.personSkillRegistro = this.data?.person.skill;
     }

@@ -54,7 +54,7 @@
           <mat-tab label="Person">
             <app-lista-person></app-lista-person>
           </mat-tab>
-          <mat-tab label="Users">
+          <mat-tab *ngIf="usuario.role == 'ROLE_ADMIN'" label="Users">
             <app-lista-users></app-lista-users>
           </mat-tab>
           <mat-tab label="Others">

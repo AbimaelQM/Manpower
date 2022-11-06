@@ -39,8 +39,6 @@ export class ModalRegisterUsersComponent implements OnInit {
   }
 
   submit(form: NgForm) {
-
-    console.log(this.usuario);
     
     if (this.usuario.id) {
       this.usuarioservice.update(this.usuario).subscribe({

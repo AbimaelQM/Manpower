@@ -45,7 +45,7 @@ export class ModalCadastroTeamComponent implements OnInit {
   getUsers() {
     this.userService.get().subscribe({
       next: (resposta: Usuario[]) => {
-        this.users = resposta;
+        this.users = resposta.filter((item)=> item.role == "ROLE_SLT");
       },
     });
   }

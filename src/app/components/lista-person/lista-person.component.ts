@@ -66,10 +66,7 @@ export class ListaPersonComponent implements OnInit {
             if(item.id == this.personSkill[item.id-1].person.id){
               this.personSkillType.push({person:item, skill:this.personSkill[item.id-1]})
             }
-            console.log(this.personSkill[item.id-1])
-
           })
-          console.log(this.personSkillType)
           this.data.data = this.personSkillType
           this.totalElements = page['totalElements'];
         }

@@ -7,8 +7,10 @@ import { ListaJobsComponent } from 'src/app/components/lista-jobs/lista-jobs.com
 import { ListaPersonComponent } from 'src/app/components/lista-person/lista-person.component';
 import { ListaSkillComponent } from 'src/app/components/lista-skill/lista-skill.component';
 import { Skill } from 'src/app/models/skill';
+import { Usuario } from 'src/app/models/usuario';
 import { LoginService } from 'src/app/services/login-service.service';
 import { SkillService } from 'src/app/services/skill.service';
+import * as ts from 'typescript';
 
 @Component({
   selector: 'app-home',
@@ -51,7 +53,7 @@ export class HomeComponent implements OnInit {
 
 
   dataSkill: Skill[] = [];
-
+  public usuario: Usuario = <Usuario>{}
   constructor(
     private router: Router,
     private loginService: LoginService,
@@ -71,7 +73,8 @@ export class HomeComponent implements OnInit {
 
       this.router.navigate(['/login'])
     }
-
+    //@ts-ignore
+    this.usuario = JSON.parse(sessionStorage.getItem("usuario"))
     this.skillService.get().subscribe({
       next: (data) => {
         this.dataSkill = data;

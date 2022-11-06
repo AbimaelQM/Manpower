@@ -34,9 +34,7 @@ export class ListaUsersComponent implements OnInit {
   ngOnInit(): void {
     this.usuarioService.get().subscribe({
       next: (values) => {
-        this.data.data = values
-        console.log(this.data.data);
-        
+        this.data.data = values        
       }
     })
   }

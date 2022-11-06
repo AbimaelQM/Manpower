@@ -43,7 +43,7 @@ export class SkillFormComponent implements OnInit {
   
   create(form: NgForm){
     
-    this.serviceSkill.create(this.skill).subscribe({
+    this.serviceSkill.insert(this.skill).subscribe({
 
       next: (resposta: Skill)=>{
    
@@ -51,7 +51,6 @@ export class SkillFormComponent implements OnInit {
       },
       error:(error)=>{
         const status  = parseInt(error.status)
-        console.log(status)
         if(status >= 400 && status < 500){
 
           this.messageService.sendMessage('cannot be saved!',status);
