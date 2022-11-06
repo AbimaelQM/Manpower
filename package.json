@@ -7,7 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "postinstall": "ng build --aot -prod"
+    "heroku-postbuild": "ng build --aot -prod"
   },
   "engines": {
     "node": "14.17.2",
@@ -18,8 +18,6 @@
     "@abacritt/angularx-social-login": "^1.2.4",
     "@angular/animations": "^14.0.0",
     "@angular/cdk": "^14.2.0",
-    "@angular/cli": "~14.2.1",
-    "@angular/compiler-cli": "^14.0.0",
     "@angular/common": "^14.0.0",
     "@angular/compiler": "^14.0.0",
     "@angular/core": "^14.0.0",
@@ -42,12 +40,14 @@
     "tsparticles": "^2.3.4",
     "tsparticles-engine": "^2.3.3",
     "typescript": "~4.7.2",
-    "zone.js": "~0.11.4"
+    "zone.js": "~0.11.4",
+    "@angular/cli": "^14.2.8",
+    "@angular/compiler-cli": "^14.2.9"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^14.2.1",
-    "@angular/cli": "~14.2.1",
-    "@angular/compiler-cli": "^14.0.0",
+    "@angular/cli": "^14.2.8",
+    "@angular/compiler-cli": "^14.2.9",
     "@types/jasmine": "~4.0.0",
     "jasmine-core": "~4.3.0",
     "karma": "~6.4.0",
