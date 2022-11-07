@@ -31,9 +31,10 @@ export class RequestInterceptor implements HttpInterceptor {
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     
     this.user = this.loginService.getUsuario;
-    console.log(this.user)
+    console.log(this.user+"11111111AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
     this.usuario = this.user
-    console.log(this.usuario)
+    console.log(this.usuario+"2222222AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
+
     const credenciaisCodificadas = btoa(this.usuario.email + ':' + this.usuario.password);
 
     // const opcoesHttp = {
