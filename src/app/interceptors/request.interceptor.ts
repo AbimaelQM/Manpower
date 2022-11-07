@@ -27,18 +27,19 @@ export class RequestInterceptor implements HttpInterceptor {
 
     const cloneRequest = request.clone({
 
-      // headers: request.headers
-      setHeaders: {
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '/*',
-        'Access-Control-Allow-Methods': 'GET, POST, OPTIONS, PUT, PATCH, DELETE',
-        'Access-Control-Allow-Headers':
-        'Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers'
-      },
+      headers: request.headers,
+      // setHeaders: {
+      //   'Content-Type': 'application/json',
+      //   'Access-Control-Allow-Origin': '/*',
+      //   'Access-Control-Allow-Methods': 'GET, POST, OPTIONS, PUT, PATCH, DELETE',
+      //   'Access-Control-Allow-Headers':
+      //   'Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers'
+      // },
       withCredentials: true,
 
     });
     console.log(cloneRequest)
+    console.log(request.headers)
 
     return next.handle(cloneRequest).pipe(
       tap({
