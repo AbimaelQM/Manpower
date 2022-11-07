@@ -25,15 +25,24 @@ export class RequestInterceptor implements HttpInterceptor {
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<unknown>> {
 
     console.log("SESSION STORAGE clone");
-    let cloneRequest = request.clone({
+    console.log(request.clone({
       
       withCredentials: true,
       setHeaders:{
         'Content-Type': 'application/json'
       }
     
+    }));
+    let cloneRequest = request.clone({
+      
+      withCredentials: true,
+      setHeaders:{
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '/*',
+        'Access-Control-Allow-Methods': 'GET, POST, OPTIONS, PUT, PATCH, DELETE'
+      }
+    
     });
-    console.log(cloneRequest.withCredentials);
 
     // if (sessionStorage.getItem('basicauth')){
     //   cloneRequest = request.clone({
