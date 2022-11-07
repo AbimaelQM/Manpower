@@ -15,6 +15,7 @@ export class LoginService {
 
   private usuario: Usuario = <Usuario>{};
   private authenticated: boolean = false;
+  private header:any
 
   constructor(private http: HttpClient,
     private router: Router,

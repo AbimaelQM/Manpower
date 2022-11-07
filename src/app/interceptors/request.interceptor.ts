@@ -5,36 +5,58 @@ import {
   HttpHandler,
   HttpEvent,
   HttpResponse,
-  HttpErrorResponse
+  HttpErrorResponse,
+  HttpHeaders
 } from '@angular/common/http';
 
 import { Observable } from 'rxjs';
 import { MessagesBarService } from '../services/messages-bar.service';
 import { finalize, tap } from 'rxjs/operators';
 import { LoaderService } from '../services/loader.service';
+import { Usuario } from '../models/usuario';
+import { LoginService } from '../services/login-service.service';
 
 @Injectable()
 export class RequestInterceptor implements HttpInterceptor {
 
+  private usuario:Usuario=<Usuario>{}
+  private user:any
   constructor(
     private messageService: MessagesBarService,
-    private loadingService: LoaderService
+    private loadingService: LoaderService,
+    private loginService: LoginService
 
   ) { }
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
+    
+    this.user = this.loginService.getUsuario;
+    console.log(this.user)
+    this.usuario = this.user
+    console.log(this.usuario)
+    const credenciaisCodificadas = btoa(this.usuario.email + ':' + this.usuario.password);
 
+    // const opcoesHttp = {
+    //   headers: new HttpHeaders({
+    //     'Authorization': 'Basic ' + credenciaisCodificadas,
+    //     'Content-Type': 'application/json',
+    //     'Access-Control-Allow-Origin': '*',
+    //     'Access-Control-Allow-Methods': 'GET, POST, OPTIONS, PUT, PATCH, DELETE',
+    //     'Access-Control-Allow-Headers':
+    //       'Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers'
+    //   })
+    // }
 
     const cloneRequest = request.clone({
 
-      headers: request.headers,
-      // setHeaders: {
-      //   'Content-Type': 'application/json',
-      //   'Access-Control-Allow-Origin': '/*',
-      //   'Access-Control-Allow-Methods': 'GET, POST, OPTIONS, PUT, PATCH, DELETE',
-      //   'Access-Control-Allow-Headers':
-      //   'Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers'
-      // },
+      setHeaders: {
+        'Authorization': 'Basic'+ credenciaisCodificadas,
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '/*',
+        'Access-Control-Allow-Methods': 'GET, POST, OPTIONS, PUT, PATCH, DELETE',
+        'Access-Control-Allow-Headers':
+        'Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers'
+      },
       withCredentials: true,
 
     });
