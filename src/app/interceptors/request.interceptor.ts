@@ -25,21 +25,15 @@ export class RequestInterceptor implements HttpInterceptor {
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<unknown>> {
 
     console.log("SESSION STORAGE clone");
-    console.log(request.clone({
-      
-      withCredentials: true,
-      setHeaders:{
-        'Content-Type': 'application/json'
-      }
-    
-    }));
+    console.log();
     let cloneRequest = request.clone({
       
       withCredentials: true,
       setHeaders:{
         'Content-Type': 'application/json',
         'Access-Control-Allow-Origin': '/*',
-        'Access-Control-Allow-Methods': 'GET, POST, OPTIONS, PUT, PATCH, DELETE'
+        'Access-Control-Allow-Methods': 'GET, POST, OPTIONS, PUT, PATCH, DELETE',
+        'Access-Control-Allow-Headers': 'Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers'
       }
     
     });
@@ -59,29 +53,30 @@ export class RequestInterceptor implements HttpInterceptor {
     //   });
     // }    
 
-    return next.handle(cloneRequest).pipe(
-      tap({
-        next: val => {
+    return next.handle(cloneRequest)
+  //   .pipe(
+  //     tap({
+  //       next: val => {
           
-          this.loadingService.show()
+  //         this.loadingService.show()
          
-        },
-        error: error => {
-          this.messageService.sendMessageResponseError(cloneRequest.method,error.status)
-          this.loadingService.hide()
-        },
-        complete: () => {
+  //       },
+  //       error: error => {
+  //         this.messageService.sendMessageResponseError(cloneRequest.method,error.status)
+  //         this.loadingService.hide()
+  //       },
+  //       complete: () => {
 
           
-          if(cloneRequest.method !== "GET"){
+  //         if(cloneRequest.method !== "GET"){
 
-            this.messageService.sendMessageResponseSuccess(cloneRequest.method,200)
-          }
-          this.loadingService.hide()
-        }
-      })
-    )
+  //           this.messageService.sendMessageResponseSuccess(cloneRequest.method,200)
+  //         }
+  //         this.loadingService.hide()
+  //       }
+  //     })
+  //   )
 
-  }
+  // }
 
 }
