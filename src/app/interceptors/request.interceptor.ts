@@ -28,8 +28,13 @@ export class RequestInterceptor implements HttpInterceptor {
     let cloneRequest = request.clone({
       
       withCredentials: true,
+      setHeaders:{
+        'Content-Type': 'application/json'
+      }
     
     });
+    console.log(cloneRequest.withCredentials);
+
     // if (sessionStorage.getItem('basicauth')){
     //   cloneRequest = request.clone({
         
