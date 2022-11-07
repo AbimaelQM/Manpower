@@ -27,18 +27,12 @@ export class RequestInterceptor implements HttpInterceptor {
     let cloneRequest = request.clone({
       
       withCredentials: true,
-      setHeaders: {
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '/*',
-        'Access-Control-Allow-Methods': 'GET, POST, OPTIONS, PUT, PATCH, DELETE',
-        'Access-Control-Allow-Headers':
-        'Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers'
-      }
     
     });
     if (sessionStorage.getItem('basicauth')){
+      console.log("SESSION STORAGE");
       cloneRequest = request.clone({
-
+        
         setHeaders: {
           'Authorization': 'Basic' + sessionStorage.getItem('basicauth'),
           'Content-Type': 'application/json',
