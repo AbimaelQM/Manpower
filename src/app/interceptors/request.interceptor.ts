@@ -22,21 +22,62 @@ export class RequestInterceptor implements HttpInterceptor {
 
   ) { }
 
-  intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<unknown>> {
+  intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
 
-    console.log("SESSION STORAGE clone");
-    console.log();
-    let cloneRequest = request.clone({
-      
+
+    const cloneRequest = request.clone({
+
       withCredentials: true,
-      setHeaders:{
+      setHeaders: {
         'Content-Type': 'application/json',
         'Access-Control-Allow-Origin': '/*',
         'Access-Control-Allow-Methods': 'GET, POST, OPTIONS, PUT, PATCH, DELETE',
-        'Access-Control-Allow-Headers': 'Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers'
+        'Access-Control-Allow-Headers':
+        'Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers'
       }
-    
+
     });
+    console.log(cloneRequest)
+
+    return next.handle(cloneRequest).pipe(
+      tap({
+        next: val => {
+          
+          this.loadingService.show()
+         
+        },
+        error: error => {
+          this.messageService.sendMessageResponseError(cloneRequest.method,error.status)
+          this.loadingService.hide()
+        },
+        complete: () => {
+
+          
+          if(cloneRequest.method !== "GET"){
+
+            this.messageService.sendMessageResponseSuccess(cloneRequest.method,200)
+          }
+          this.loadingService.hide()
+        }
+      })
+    )
+
+  }
+  // intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<unknown>> {
+
+  //   console.log("SESSION STORAGE clone");
+  //   console.log();
+  //   let cloneRequest = request.clone({
+      
+  //     withCredentials: true,
+  //     setHeaders:{
+  //       'Content-Type': 'application/json',
+  //       'Access-Control-Allow-Origin': '/*',
+  //       'Access-Control-Allow-Methods': 'GET, POST, OPTIONS, PUT, PATCH, DELETE',
+  //       'Access-Control-Allow-Headers': 'Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers'
+  //     }
+    
+  //   });
 
     // if (sessionStorage.getItem('basicauth')){
     //   cloneRequest = request.clone({
@@ -53,7 +94,7 @@ export class RequestInterceptor implements HttpInterceptor {
     //   });
     // }    
 
-    return next.handle(cloneRequest)
+    // return next.handle(cloneRequest)
   //   .pipe(
   //     tap({
   //       next: val => {
@@ -77,6 +118,6 @@ export class RequestInterceptor implements HttpInterceptor {
   //     })
   //   )
 
-  }
+  // }
 
 }
